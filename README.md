@@ -54,10 +54,11 @@ pip install -r requirements.txt
 
 ## Note: 
 using pip install > CPU version gets installed
+##
 using requirements.txt > TF detects CUDA installation [for GPU] > installs GPU version
 
 # Reference
-- *youtube tutorial*: https://www.youtube.com/watch?v=TixyCAMwMsU&list=PLvz5lCwTgdXDNcXEVwwHsb9DwjNXZGsoy&index=3
+- *youtube tutorial*: https://www.youtube.com/playlist?list=PLvz5lCwTgdXDNcXEVwwHsb9DwjNXZGsoy
 
 
 # Model
@@ -211,8 +212,13 @@ from sklearn.metrics import classification_report, confusion_matrix
 ### Confusion Matrix
 - The confusion matrix is generated to evaluate the model's performance
 
-# Disease
-
+# CSV Data Exporter
+- Python script to export plant disease data to a CSV file
+- It generates `plant_disease_data.csv` with these columns:
+   - Class Name
+   - Disease
+   - Symptoms
+   - Treatment
 
 
 # Website Using Streamlit
