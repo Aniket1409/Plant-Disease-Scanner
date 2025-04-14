@@ -1,3 +1,6 @@
+This model was trained on the [PlantVillage Dataset](https://github.com/spMohanty/PlantVillage-Dataset) (CC BY-SA 4.0).  
+Tutorial reference: [YouTube Video Title](link).  
+
 # Plant Disease Scanner
 
 # Overview
