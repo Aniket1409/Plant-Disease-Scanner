@@ -1,5 +1,6 @@
 # Hardware Required
 - Any NVIDIA GPU with latest drivers
+- Model was trained using a Nvidia GPU
   
 # Prerequisites
 - Python 3.9
@@ -8,9 +9,14 @@
 - TensorFlow 2.10 (last version with GPU support)
 
 # Steps
-1. Clone Repository https://github.com/Aniket1409/Plant-Disease-Scanner/tree/main 
-2. Installation (Anaconda Prompt) only works if NVIDIA drivers are installed
-```bash
+1. Clone Repository (~90MB)
+```cmd
+git clone https://github.com/Aniket1409/Plant-Disease-Scanner.git
+cd Plant-Disease-Scanner
+```
+
+2. Installation (only works if NVIDIA drivers are installed)
+```cmd
 nvidia-smi
 conda create -n tensorflow_environment python==3.9
 conda activate tensorflow_environment
@@ -20,6 +26,12 @@ cd <folder_location>
 pip install -r requirements.txt
 ```
 
-## Note: 
 - using pip install > CPU version gets installed
 - using requirements.txt > TF detects CUDA installation > installs GPU version
+
+3. Run Using Streamlit
+- Open app.py → Open folder with cloned repository in code editor
+- Command Palette (Ctrl+Shift+P) → Select Interpreter → tensorflow_environment
+```cmd
+streamlit run app.pys
+```
