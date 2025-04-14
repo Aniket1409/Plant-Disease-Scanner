@@ -28,41 +28,36 @@ The model is trained to detect 38 different classes of plant diseases and health
 
 # Installation (Anaconda Prompt)
 
-nvidia-smi
-### Shows GPU driver, current GPU usage & CUDA version
+### Show GPU driver, current GPU usage & CUDA version
+```nvidia-smi```
 
-conda create -n tensorflow_environment python==3.9
 ### Create new environment named 'tensorflow_environment' with Python 3.9
+```conda create -n tensorflow_environment python==3.9```
 
-conda activate tensorflow_environment
 ### Activate the created environment
+```conda activate tensorflow_environment```
 
-conda deactivate
 ### Deactivate the current environment (corrected from 'conda activate')
+```conda deactivate```
 
-conda env list
 ### List all available Conda environments
+```conda env list```
 
-conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
 ### Install CUDA Toolkit 11.2 and cuDNN 8.1.0 for GPU support
+```conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0```
 
-python -m pip install --upgrade pip
 ### Upgrade pip to the latest version
+```python -m pip install --upgrade pip```
 
-cd <folder_location>
 ### Change directory to the specified folder location
+```cd <folder_location>```
 
-pip install -r requirements.txt
 ### Install all Python libraries listed in requirements.txt
+```pip install -r requirements.txt```
 
 ## Note: 
-using pip install > CPU version gets installed
-##
-using requirements.txt > TF detects CUDA installation [for GPU] > installs GPU version
-
-# Reference
-- *youtube tutorial*: https://www.youtube.com/playlist?list=PLvz5lCwTgdXDNcXEVwwHsb9DwjNXZGsoy
-
+- using pip install > CPU version gets installed
+- using requirements.txt > TF detects CUDA installation [for GPU] > installs GPU version
 
 # Model
 
