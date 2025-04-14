@@ -8,7 +8,7 @@
 - TensorFlow 2.10 (last version with GPU support)
 
 # Steps
-1. Clone Repository
+1. Clone Repository https://github.com/Aniket1409/Plant-Disease-Scanner/tree/main 
 2. Installation (Anaconda Prompt) only works if NVIDIA drivers are installed
 ```bash
 nvidia-smi
