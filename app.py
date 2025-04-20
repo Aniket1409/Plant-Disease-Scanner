@@ -21,7 +21,7 @@ disease_db, class_name = load_disease_data()
 @st.cache_resource(show_spinner="⚙️ Loading AI model...", ttl=24*3600)  # Download & Cache Model for 24 hours
 url = "https://github.com/yourusername/yourrepo/releases/download/v1.0/model.keras"
 response = requests.get(url)
-asset = tf.keras.models.load_model(BytesIO(response.content))
+model = tf.keras.models.load_model(BytesIO(response.content))
 
     
 # Model Function
