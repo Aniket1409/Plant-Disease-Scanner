@@ -19,6 +19,7 @@ def load_disease_data():
     return disease_db, df['Class Name'].unique().tolist()
 disease_db, class_name = load_disease_data()
 
+# Model Load Function
 @st.cache_resource(show_spinner="⚙️ Loading AI model...", ttl=24*3600)  # Download & Cache Model for 24 hours
 def load_model():
     url = "https://github.com/Aniket1409/Plant-Disease-Scanner/releases/download/v1.0.0/model.keras"
@@ -27,12 +28,9 @@ def load_model():
     response.raise_for_status()
     model = tf.keras.models.load_model(BytesIO(response.content))
     return model
-
 model = load_model()
-if model:
-    st.success("Model Loaded")
     
-# Model Function
+# Prediction Function
 def model_prediction(test_image):
     image = tf.keras.preprocessing.image.load_img(test_image, target_size=(128, 128))
     input_arr = tf.keras.preprocessing.image.img_to_array(image)
