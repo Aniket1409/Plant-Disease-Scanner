@@ -12,7 +12,7 @@ git clone https://github.com/Aniket1409/Plant-Disease-Scanner.git
 cd Plant-Disease-Scanner
 ```
 
-2. Installation (only works if NVIDIA drivers are installed)
+2. Create Tensorflow Environment (only works if NVIDIA drivers are installed)
 ```cmd
 nvidia-smi
 conda create -n tensorflow_environment python==3.9
