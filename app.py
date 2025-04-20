@@ -6,6 +6,7 @@ import pandas as pd
 from PIL import Image, UnidentifiedImageError
 from io import BytesIO
 import requests
+import tempfile
 
 # Load Function (requires plant_disease_data.csv)
 def load_disease_data():
@@ -27,9 +28,13 @@ def load_model():
     with st.spinner('Downloading Model...'):
         response = requests.get(url)
         response.raise_for_status()
-    model = tf.keras.models.load_model(BytesIO(response.content))
+        with tempfile.NamedTemporaryFile(suffix='.keras', delete=False) as tmp_file:        # Save to temporary file path
+            tmp_file.write(response.content)
+            tmp_path = tmp_file.name
+    model = tf.keras.models.load_model(BytesIO(response.content))    # Load from temporary file path
+    model = tf.keras.models.load_model(tmp_path)
+    os.unlink(tmp_path)  # Clean up temp file
     return model
-model = load_model()
     
 # Prediction Function
 def model_prediction(test_image):
