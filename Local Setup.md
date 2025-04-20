@@ -23,8 +23,8 @@ cd <folder_location>
 pip install -r requirements.txt
 ```
 
-- using pip install > CPU version gets installed
-- using requirements.txt > TF detects CUDA installation > installs GPU version
+- using pip install → CPU version gets installed
+- using requirements.txt → TF detects CUDA installation → installs GPU version
 
 3. Run Using Streamlit
 - Open app.py → Open folder with cloned repository in code editor
