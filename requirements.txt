@@ -1,0 +1,7 @@
+tensorflow==2.15.0          # Latest stable TF (Oct 2023)
+scikit-learn==1.3.2         # TF 2.15 compatibility
+numpy==1.26.0               # TF 2.15 requires NumPy >=1.23.5
+pandas==2.1.3               # Compatible with newer NumPy
+matplotlib==3.8.0           # For Python 3.11
+seaborn==0.13.1             # Works with latest Matplotlib
+streamlit==1.28.0           # Latest stable Streamlit
