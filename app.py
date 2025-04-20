@@ -44,7 +44,7 @@ def load_model():
         if os.path.exists(tmp_path):
             os.unlink(tmp_path)
     return model
-    model = load_model()
+model = load_model()
 
 # Prediction Function
 def model_prediction(test_image):
