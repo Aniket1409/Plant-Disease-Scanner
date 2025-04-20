@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 from PIL import Image, UnidentifiedImageError
 from io import BytesIO
+import requests
 
 # Load Function (requires plant_disease_data.csv)
 def load_disease_data():
