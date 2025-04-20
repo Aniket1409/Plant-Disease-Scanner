@@ -22,30 +22,56 @@ def load_disease_data():
     return disease_db, df['Class Name'].unique().tolist()
 disease_db, class_name = load_disease_data()
 
+
 # Model Load Function
-@st.cache_resource(show_spinner="⚙️ Loading AI model...", ttl=24*3600)  # Download & Cache Model for 24 hours
+@st.cache_resource(show_spinner="⚙️ Loading AI model...", ttl=24*3600)
 def load_model():
     url = "https://github.com/Aniket1409/Plant-Disease-Scanner/releases/download/v1.0.0/model.keras"
-    with st.spinner('Downloading Model...'):
-        response = requests.get(url, stream=True)
-        response.raise_for_status()
-            # Create a temporary file with .keras extension
+    
+    try:
+        with st.spinner('Downloading Model (this may take a few minutes)...'):
+            # Download with streaming to handle large files
+            response = requests.get(url, stream=True)
+            response.raise_for_status()
+            
+            # Create temporary file
             with tempfile.NamedTemporaryFile(suffix='.keras', delete=False) as tmp_file:
+                # Write in chunks to handle large files
                 for chunk in response.iter_content(chunk_size=8192):
                     if chunk:
                         tmp_file.write(chunk)
                 tmp_path = tmp_file.name
-        # Verify the file exists and has content
+                
+        # Verify file exists and has content
         if not os.path.exists(tmp_path) or os.path.getsize(tmp_path) == 0:
             raise ValueError("Downloaded model file is empty or doesn't exist")
-        return model
+        
         # Load the model
         model = tf.keras.models.load_model(tmp_path)
         st.success("Model loaded successfully!")
         return model
+        
+    except Exception as e:
+        st.error(f"Failed to load model: {str(e)}")
+        st.error("Please check your internet connection and try again.")
+        return None
+    finally:
+        # Clean up temporary file
         if 'tmp_path' in locals() and os.path.exists(tmp_path):
-            os.unlink(tmp_path)
+            try:
+                os.unlink(tmp_path)
+            except:
+                pass  # Silently fail if cleanup doesn't work
+
+# Load the model (outside the function)
 model = load_model()
+
+# Verify model loaded successfully
+if model is None:
+    st.error("Critical Error: Could not load the AI model. The application cannot continue.")
+    st.stop()
+
+
 
 # Prediction Function
 def model_prediction(test_image):
