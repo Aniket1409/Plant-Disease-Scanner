@@ -6,7 +6,7 @@
 - NVIDIA GPU with latest drivers
 
 # Steps
-1. Clone Repository (~90MB)
+1. Clone Repository
 ```cmd
 git clone https://github.com/Aniket1409/Plant-Disease-Scanner.git
 cd Plant-Disease-Scanner
