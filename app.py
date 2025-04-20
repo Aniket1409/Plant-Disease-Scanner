@@ -10,7 +10,7 @@ import requests
 import tempfile
 import os
 import hashlib
-from pathlib import Path  # Explicit import
+from pathlib import Path
 
 # Load Function (requires plant_disease_data.csv)
 def load_disease_data():
@@ -28,13 +28,6 @@ disease_db, class_name = load_disease_data()
 
 
 
-
-import os
-import requests
-import tempfile
-import tensorflow as tf
-import streamlit as st
-from pathlib import Path
 
 @st.cache_resource(show_spinner="⚙️ Loading AI model...", ttl=24*3600)
 def load_model():
