@@ -22,9 +22,9 @@ The model is trained to detect 38 different classes of plant diseases and health
 # Prerequisites
 - Python 3.9
 - Anaconda3 2024.10-1 (64-bit)
-- NVIDIA GPU with latest drivers
 - Microsoft Visual C++ 2015-2022 (x64)
 - TensorFlow 2.10 (last version with GPU support)
+- NVIDIA GPU with latest drivers
 
 # Installation (Anaconda Prompt)
 
