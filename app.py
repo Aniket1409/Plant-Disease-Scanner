@@ -27,14 +27,24 @@ disease_db, class_name = load_disease_data()
 def load_model():
     url = "https://github.com/Aniket1409/Plant-Disease-Scanner/releases/download/v1.0.0/model.keras"
     with st.spinner('Downloading Model...'):
-        response = requests.get(url)
+        response = requests.get(url, stream=True)
         response.raise_for_status()
-        with tempfile.NamedTemporaryFile(suffix='.keras', delete=False) as tmp_file:        # Save to temporary file path
-            tmp_file.write(response.content)
-            tmp_path = tmp_file.name
-            tmp_file.close()
-    # Load the model from the temporary file
-model = tf.keras.models.load_model(tmp_path)
+            # Create a temporary file with .keras extension
+            with tempfile.NamedTemporaryFile(suffix='.keras', delete=False) as tmp_file:
+                for chunk in response.iter_content(chunk_size=8192):
+                    if chunk:
+                        tmp_file.write(chunk)
+                tmp_path = tmp_file.name
+        # Verify the file exists and has content
+        if not os.path.exists(tmp_path) or os.path.getsize(tmp_path) == 0:
+            raise ValueError("Downloaded model file is empty or doesn't exist")
+        return model
+        # Load the model
+        model = tf.keras.models.load_model(tmp_path)
+        st.success("Model loaded successfully!")
+        return model
+        if 'tmp_path' in locals() and os.path.exists(tmp_path):
+            os.unlink(tmp_path)
 model = load_model()
 
 # Prediction Function
