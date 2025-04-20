@@ -5,9 +5,9 @@ import numpy as np
 import pandas as pd
 from PIL import Image, UnidentifiedImageError
 
-# Load Function (requires combined_disease_data.csv)
+# Load Function (requires plant_disease_data.csv)
 def load_disease_data():
-    df = pd.read_csv("combined_disease_data.csv")
+    df = pd.read_csv("plant_disease_data.csv")
     disease_db = {}     # empty dictionary
     for i, row in df.iterrows():
         if row['Disease'] != 'N/A':
