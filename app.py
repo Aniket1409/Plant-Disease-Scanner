@@ -33,8 +33,16 @@ def load_model():
             tmp_file.write(response.content)
             tmp_path = tmp_file.name
             tmp_file.close()
-    model = tf.keras.models.load_model(tmp_path)    # Load from temporary file path
-    os.unlink(tmp_path)  # Clean up temp file
+    # Load the model from the temporary file
+    try:
+        model = tf.keras.models.load_model(tmp_path)
+    except Exception as e:
+        st.error(f"Error loading model: {e}")
+        raise e
+    finally:
+        # Clean up the temporary file
+        if os.path.exists(tmp_path):
+            os.unlink(tmp_path)
     return model
     model = load_model()
 
