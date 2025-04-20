@@ -1,12 +1,9 @@
-# Hardware Required
-- Any NVIDIA GPU with latest drivers
-- Model was trained using a Nvidia GPU
-  
 # Prerequisites
 - Python 3.9
 - Anaconda3 2024.10-1 (64-bit)
 - Microsoft Visual C++ 2015-2022 (x64)
 - TensorFlow 2.10 (last version with GPU support)
+- NVIDIA GPU with latest drivers
 
 # Steps
 1. Clone Repository (~90MB)
