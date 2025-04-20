@@ -35,6 +35,7 @@ def load_model():
     model = tf.keras.models.load_model(tmp_path)
     os.unlink(tmp_path)  # Clean up temp file
     return model
+model = load_model()
     
 # Prediction Function
 def model_prediction(test_image):
