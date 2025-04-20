@@ -29,57 +29,94 @@ disease_db, class_name = load_disease_data()
 
 
 
-# Model Load Function
+import os
+import requests
+import tempfile
+import tensorflow as tf
+import streamlit as st
+from pathlib import Path
+
 @st.cache_resource(show_spinner="⚙️ Loading AI model...", ttl=24*3600)
 def load_model():
-    # Model URL and local cache path
-    model_url = "https://github.com/Aniket1409/Plant-Disease-Scanner/releases/download/v1.0.0/model.keras"
-    cache_dir = Path(tempfile.gettempdir()) / "plant_disease_models"
-    cache_dir.mkdir(exist_ok=True)
-    model_path = cache_dir / "model.keras"
+    MODEL_URL = "https://github.com/Aniket1409/Plant-Disease-Scanner/releases/download/v1.0.0/model.keras"
     
     try:
-        # Download if not cached
+        # Create cache directory
+        cache_dir = Path(tempfile.gettempdir()) / "plant_disease_cache"
+        cache_dir.mkdir(exist_ok=True, parents=True)
+        model_path = cache_dir / "model.keras"
+        
+        # Download if needed
         if not model_path.exists():
-            with st.spinner('Downloading model (this may take a few minutes)...'):
-                response = requests.get(model_url, stream=True)
-                response.raise_for_status()
-                
-                # Write to temporary file first
+            with st.spinner('Downloading model (please wait)...'):
+                # Download to temporary location first
                 temp_path = model_path.with_suffix('.tmp')
-                with open(temp_path, 'wb') as f:
-                    for chunk in response.iter_content(chunk_size=8192):
-                        if chunk:
-                            f.write(chunk)
                 
-                # Verify download completed
-                if temp_path.stat().st_size == 0:
-                    raise ValueError("Downloaded file is empty")
-                
-                # Rename temp file to final name
-                temp_path.rename(model_path)
+                try:
+                    response = requests.get(MODEL_URL, stream=True, timeout=30)
+                    response.raise_for_status()
+                    
+                    # Write file in chunks with progress
+                    total_size = int(response.headers.get('content-length', 0))
+                    progress_bar = st.progress(0)
+                    
+                    with open(temp_path, 'wb') as f:
+                        downloaded = 0
+                        for chunk in response.iter_content(chunk_size=8192):
+                            if chunk:
+                                f.write(chunk)
+                                downloaded += len(chunk)
+                                if total_size > 0:
+                                    progress = min(downloaded / total_size, 1.0)
+                                    progress_bar.progress(progress)
+                    
+                    # Verify download completed
+                    if temp_path.stat().st_size == 0:
+                        raise ValueError("Downloaded file is empty")
+                    
+                    # Rename temporary file to final name
+                    temp_path.rename(model_path)
+                    progress_bar.empty()
+                    
+                except Exception as download_error:
+                    if temp_path.exists():
+                        temp_path.unlink()  # Clean up partial download
+                    raise download_error
         
-        # Load model
-        model = tf.keras.models.load_model(model_path)
-        st.success("Model loaded successfully!")
-        return model
+        # Verify final model file exists
+        if not model_path.exists():
+            raise FileNotFoundError("Model file not found after download")
         
+        # Load the model with verification
+        try:
+            model = tf.keras.models.load_model(model_path)
+            st.success("✅ Model loaded successfully!")
+            return model
+        except Exception as load_error:
+            if model_path.exists():
+                model_path.unlink()  # Remove corrupted file
+            raise load_error
+            
+    except requests.exceptions.RequestException as e:
+        st.error(f"🌐 Network error: {str(e)}")
+        st.info("Please check your internet connection and try again.")
     except Exception as e:
-        st.error(f"Failed to load model: {str(e)}")
-        # Try to clean up corrupted files
-        if 'temp_path' in locals() and temp_path.exists():
-            temp_path.unlink()
-        if model_path.exists():
-            model_path.unlink()
-        return None
+        st.error(f"❌ Model loading failed: {str(e)}")
+    
+    return None
 
-# Load the model
+# Load the model with verification
 model = load_model()
 
 if model is None:
-    st.error("Failed to load model. The application cannot continue.")
+    st.error("""
+    🔴 Critical Error: Could not load the AI model. Please:
+    1. Check your internet connection
+    2. Refresh the page (Ctrl+F5)
+    3. Try again later
+    4. Contact support if the problem persists
+    """)
     st.stop()
-
 
 
 
