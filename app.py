@@ -34,16 +34,7 @@ def load_model():
             tmp_path = tmp_file.name
             tmp_file.close()
     # Load the model from the temporary file
-    try:
-        model = tf.keras.models.load_model(tmp_path)
-    except Exception as e:
-        st.error(f"Error loading model: {e}")
-        raise e
-    finally:
-        # Clean up the temporary file
-        if os.path.exists(tmp_path):
-            os.unlink(tmp_path)
-    return model
+model = tf.keras.models.load_model(tmp_path)
 model = load_model()
 
 # Prediction Function
