@@ -9,6 +9,8 @@ from io import BytesIO
 import requests
 import tempfile
 import os
+import hashlib
+from pathlib import Path  # Explicit import
 
 # Load Function (requires plant_disease_data.csv)
 def load_disease_data():
