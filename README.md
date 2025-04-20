@@ -7,10 +7,6 @@
 
 # Steps
 1. Clone Repository
-```cmd
-git clone https://github.com/Aniket1409/Plant-Disease-Scanner.git
-cd Plant-Disease-Scanner
-```
 
 2. Create Tensorflow Environment (only works if NVIDIA drivers are installed)
 ```cmd
