@@ -32,6 +32,7 @@ def load_model():
         with tempfile.NamedTemporaryFile(suffix='.keras', delete=False) as tmp_file:        # Save to temporary file path
             tmp_file.write(response.content)
             tmp_path = tmp_file.name
+            tmp_file.close()
     model = tf.keras.models.load_model(tmp_path)    # Load from temporary file path
     os.unlink(tmp_path)  # Clean up temp file
     return model
