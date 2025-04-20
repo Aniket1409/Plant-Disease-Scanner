@@ -23,7 +23,7 @@ disease_db, class_name = load_disease_data()
 @st.cache_resource(show_spinner="⚙️ Loading AI model...", ttl=24*3600)  # Download & Cache Model for 24 hours
 def load_model():
     url = "https://github.com/Aniket1409/Plant-Disease-Scanner/releases/download/v1.0.0/model.keras"
-    with st.spinner('Downloading Model...')
+    with st.spinner('Downloading Model...'):
     response = requests.get(url)
     response.raise_for_status()
     model = tf.keras.models.load_model(BytesIO(response.content))
