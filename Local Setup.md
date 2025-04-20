@@ -30,5 +30,5 @@ pip install -r requirements.txt
 - Open app.py → Open folder with cloned repository in code editor
 - Command Palette (Ctrl+Shift+P) → Select Interpreter → tensorflow_environment
 ```cmd
-streamlit run app.pys
+streamlit run app.py
 ```
