@@ -4,6 +4,7 @@ import tensorflow as tf
 import numpy as np
 import pandas as pd
 from PIL import Image, UnidentifiedImageError
+from io import BytesIO
 
 # Load Function (requires plant_disease_data.csv)
 def load_disease_data():
@@ -19,14 +20,20 @@ def load_disease_data():
 disease_db, class_name = load_disease_data()
 
 @st.cache_resource(show_spinner="⚙️ Loading AI model...", ttl=24*3600)  # Download & Cache Model for 24 hours
-url = "https://github.com/yourusername/yourrepo/releases/download/v1.0/model.keras"
-response = requests.get(url)
-model = tf.keras.models.load_model(BytesIO(response.content))
+def load_model():
+    url = "https://github.com/Aniket1409/Plant-Disease-Scanner/releases/download/v1.0.0/model.keras"
+    with st.spinner('Downloading Model...')
+    response = requests.get(url)
+    response.raise_for_status()
+    model = tf.keras.models.load_model(BytesIO(response.content))
+    return model
 
+model = load_model()
+if model:
+    st.success("Model Loaded")
     
 # Model Function
 def model_prediction(test_image):
-    model = tf.keras.models.load_model('model.keras')
     image = tf.keras.preprocessing.image.load_img(test_image, target_size=(128, 128))
     input_arr = tf.keras.preprocessing.image.img_to_array(image)
     input_arr = np.array([input_arr])  # Convert to batch
