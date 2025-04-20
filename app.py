@@ -24,8 +24,8 @@ disease_db, class_name = load_disease_data()
 def load_model():
     url = "https://github.com/Aniket1409/Plant-Disease-Scanner/releases/download/v1.0.0/model.keras"
     with st.spinner('Downloading Model...'):
-    response = requests.get(url)
-    response.raise_for_status()
+        response = requests.get(url)
+        response.raise_for_status()
     model = tf.keras.models.load_model(BytesIO(response.content))
     return model
 model = load_model()
