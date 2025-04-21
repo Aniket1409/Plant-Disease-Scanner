@@ -21,7 +21,7 @@ disease_db, class_name = load_disease_data()
 
 # Model Function
 def model_prediction(test_image):
-    model_url = "https://your-direct-download-link/model.keras"
+    model_url = "https://github.com/Aniket1409/Plant-Disease-Scanner/releases/download/v1.0.0/model.keras"
     urllib.request.urlretrieve(model_url, "model.keras")
     model = tf.keras.models.load_model('model.keras')
     image = tf.keras.preprocessing.image.load_img(test_image, target_size=(128, 128))
