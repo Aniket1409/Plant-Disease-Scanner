@@ -1,0 +1,39 @@
+Class Name,Disease,Symptoms,Treatment
+Apple___Apple_scab,Apple Scab,"Olive-green to black spots on leaves, may cause leaf drop","Apply fungicides like myclobutanil, prune affected branches"
+Apple___Black_rot,Apple Black Rot,"Brown spots with concentric rings, shriveled fruits","Remove infected plant material, apply captan fungicide"
+Apple___Cedar_apple_rust,Cedar Apple Rust,"Yellow-orange spots on leaves, gelatinous growths","Remove nearby junipers, apply fungicides in early spring"
+Apple___healthy,Healthy Apple,No visible disease symptoms,Maintain proper watering and fertilization
+Blueberry___healthy,Healthy Blueberry,No visible disease symptoms,Ensure acidic soil conditions and proper pruning
+Cherry_(including_sour)___Powdery_mildew,Cherry Powdery Mildew,White powdery spots on leaves and shoots,Apply sulfur or potassium bicarbonate fungicides
+Cherry_(including_sour)___healthy,Healthy Cherry,No visible disease symptoms,Maintain good air circulation around trees
+Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot,Corn Cercospora/Gray Leaf Spot,Rectangular tan lesions with dark borders on leaves,"Rotate crops, use resistant varieties"
+Corn_(maize)___Common_rust_,Corn Common Rust,"Small, round to elongate golden brown pustules",Apply fungicides at first sign of disease
+Corn_(maize)___Northern_Leaf_Blight,Corn Northern Leaf Blight,"Long, elliptical gray-green lesions","Use resistant hybrids, practice crop rotation"
+Corn_(maize)___healthy,Healthy Corn,No visible disease symptoms,Maintain proper plant spacing
+Grape___Black_rot,Grape Black Rot,Brown leaf spots with black fruiting bodies,"Apply fungicides before flowering, remove infected berries"
+Grape___Esca_(Black_Measles),Grape Esca (Black Measles),"Tiger-stripe patterns on leaves, wood decay","Prune affected wood, apply wound protectants"
+Grape___Leaf_blight_(Isariopsis_Leaf_Spot),Grape Leaf Blight (Isariopsis),Angular brown spots with yellow halos,Apply copper-based fungicides
+Grape___healthy,Healthy Grape,No visible disease symptoms,Maintain proper trellising and pruning
+Orange___Haunglongbing_(Citrus_greening),Citrus Greening (Huanglongbing),"Yellow shoots, lopsided bitter fruit","Remove infected trees, control psyllid vectors"
+Peach___Bacterial_spot,Peach Bacterial Spot,"Dark, angular leaf spots, fruit cracking",Apply copper sprays during dormancy
+Peach___healthy,Healthy Peach,No visible disease symptoms,Prune to improve air circulation
+"Pepper,_bell___Bacterial_spot",Bell Pepper Bacterial Spot,Small water-soaked spots that turn brown,"Use disease-free seed, apply copper sprays"
+"Pepper,_bell___healthy",Healthy Bell Pepper,No visible disease symptoms,Avoid overhead watering
+Potato___Early_blight,Potato Early Blight,Small brown spots with target-like rings,"Rotate crops, apply chlorothalonil fungicides"
+Potato___Late_blight,Potato Late Blight,Greasy-looking dark lesions that spread quickly,"Destroy infected plants, use copper fungicides"
+Potato___healthy,Healthy Potato,No visible disease symptoms,Hill soil around plants
+Raspberry___healthy,Healthy Raspberry,No visible disease symptoms,Remove old canes after fruiting
+Soybean___healthy,Healthy Soybean,No visible disease symptoms,Rotate with non-legume crops
+Squash___Powdery_mildew,Squash Powdery Mildew,White powdery coating on leaves,Apply sulfur or horticultural oil
+Strawberry___Leaf_scorch,Strawberry Leaf Scorch,Purple spots with white centers on leaves,"Remove infected leaves, improve air flow"
+Strawberry___healthy,Healthy Strawberry,No visible disease symptoms,Renew beds every 2-3 years
+Tomato___Bacterial_spot,Tomato Bacterial Spot,Small water-soaked spots with yellow halos,"Use pathogen-free seed, apply copper sprays"
+Tomato___Early_blight,Tomato Early Blight,Dark spots with concentric rings on lower leaves,"Remove affected leaves, apply copper-based fungicides"
+Tomato___Late_blight,Tomato Late Blight,Water-soaked lesions that turn brown and spread rapidly,"Destroy infected plants, use chlorothalonil fungicides"
+Tomato___Leaf_Mold,Tomato Leaf Mold,Yellow spots with olive-green undersides,"Reduce humidity, apply fungicides"
+Tomato___Septoria_leaf_spot,Tomato Septoria Leaf Spot,Small circular spots with dark borders,"Remove lower leaves, apply copper fungicides"
+Tomato___Spider_mites Two-spotted_spider_mite,Tomato Spider Mites (Two-Spotted),"Fine webbing, stippled yellow leaves","Apply miticides, increase humidity"
+Tomato___Target_Spot,Tomato Target Spot,Brown spots with concentric rings and yellow halos,Apply chlorothalonil fungicides
+Tomato___Tomato_Yellow_Leaf_Curl_Virus,Tomato Yellow Leaf Curl Virus,Upward curling leaves with yellow margins,"Control whiteflies, remove infected plants"
+Tomato___Tomato_mosaic_virus,Tomato Mosaic Virus,Mottled light and dark green patterns,"Destroy infected plants, disinfect tools"
+Tomato___healthy,Healthy Tomato,No visible disease symptoms,Rotate crops annually
