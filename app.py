@@ -4,7 +4,7 @@ import tensorflow as tf
 import numpy as np
 import pandas as pd
 from PIL import Image, UnidentifiedImageError
-import urllib.request
+import os
 
 # Load Function (requires combined_disease_data.csv)
 def load_disease_data():
@@ -21,9 +21,8 @@ disease_db, class_name = load_disease_data()
 
 # Model Function
 def model_prediction(test_image):
-    model_url = "https://drive.google.com/file/d/1P5UNJv5tezh7dykhxg7ytUstU7_pmdi0/view?usp=drive_link"
-    urllib.request.urlretrieve(model_url, "model.keras")
-    model = tf.keras.models.load_model('model.keras')
+    model_path = os.path.abspath("model.keras")
+    model = tf.keras.models.load_model(model_path)
     image = tf.keras.preprocessing.image.load_img(test_image, target_size=(128, 128))
     input_arr = tf.keras.preprocessing.image.img_to_array(image)
     input_arr = np.array([input_arr])  # Convert to batch
