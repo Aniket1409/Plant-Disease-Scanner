@@ -1,20 +1,21 @@
-#tensorflow==2.19.0          # Stable CPU/GPU version
-#numpy==1.26.4               # TF 2.19+ requires NumPy 1.23+
-#scipy==1.13.0
-#pandas==2.2.1               # Compatible with NumPy 1.26
-#protobuf==3.20.3            # Required for serialization
-#scikit-learn==1.4.2
-#matplotlib==3.8.4
-#seaborn==0.13.2
-#streamlit==1.35.0           # Latest Streamlit with TF 2.19 support
+# cloud
+tensorflow==2.19.0          # Stable CPU/GPU version
+numpy==1.26.4               # TF 2.19+ requires NumPy 1.23+
+scipy==1.13.0
+pandas==2.2.1               # Compatible with NumPy 1.26
+protobuf==3.20.3            # Required for serialization
+scikit-learn==1.4.2
+matplotlib==3.8.4
+seaborn==0.13.2
+streamlit==1.35.0           # Latest Streamlit with TF 2.19 support
 
-# old versions
-tensorflow==2.10.0
-scikit-learn==1.3.0
-numpy==1.23.5
-matplotlib==3.7.2
-pandas==2.1.0
-seaborn==0.13.0
-streamlit==1.12.2
-protobuf==3.20.3
-altair==4.2.2
+# local
+#tensorflow==2.10.0
+#scikit-learn==1.3.0
+#numpy==1.23.5
+#matplotlib==3.7.2
+#pandas==2.1.0
+#seaborn==0.13.0
+#streamlit==1.12.2
+#protobuf==3.20.3
+#altair==4.2.2
