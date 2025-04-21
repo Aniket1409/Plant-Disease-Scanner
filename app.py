@@ -20,7 +20,7 @@ disease_db, class_name = load_disease_data()
 
 # Model Function
 def model_prediction(test_image):
-    model = tf.keras.models.load_model('/mount/src/plant-disease-scanner/model.keras')
+    model = tf.keras.models.load_model('model.keras')
     image = tf.keras.preprocessing.image.load_img(test_image, target_size=(128, 128))
     input_arr = tf.keras.preprocessing.image.img_to_array(image)
     input_arr = np.array([input_arr])  # Convert to batch
