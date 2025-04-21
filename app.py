@@ -21,7 +21,15 @@ disease_db, class_name = load_disease_data()
 
 # Model Function
 def model_prediction(test_image):
+<<<<<<< HEAD
     model = tf.keras.models.load_model('trained_model.keras')
+=======
+<<<<<<< HEAD
+    model = tf.keras.models.load_model('trained_model.keras')
+=======
+    model = tf.keras.models.load_model("model.keras")
+>>>>>>> 6d401b448205245f90e5f56ee8f324270ea35345
+>>>>>>> 77f30a4f26f8ebeae4787ca40154f695b0f675bd
     image = tf.keras.preprocessing.image.load_img(test_image, target_size=(128, 128))
     input_arr = tf.keras.preprocessing.image.img_to_array(image)
     input_arr = np.array([input_arr])  # Convert to batch
