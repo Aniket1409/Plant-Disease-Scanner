@@ -1,3 +1,14 @@
+# Create Flask app, set a port for render
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Hello World!"
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=10000)  # ← Critical for Render
+
 # Libraries
 import streamlit as st
 import tensorflow as tf
