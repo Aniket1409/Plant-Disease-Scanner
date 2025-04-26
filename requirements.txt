@@ -9,7 +9,8 @@ matplotlib==3.8.4
 seaborn==0.13.2
 streamlit==1.35.0           # Latest Streamlit with TF 2.19 support
 gunicorn==20.1.0
-Flask==2.0.1   # (or Django, FastAPI, etc.)
+Flask==2.0.3
+Werkzeug==2.0.3  # compatible with Flask version
 
 # local
 #tensorflow==2.10.0
