@@ -23,7 +23,7 @@ pip install -r requirements.txt
 - using requirements.txt → TF detects CUDA installation → installs GPU version
 
 3. Run Using Streamlit
-- Open cloned repository in code editor → Open app.py
+- Open cloned repository in code editor → open app.py
 - Select Interpreter → tensorflow_environment
 ```cmd
 streamlit run app.py
